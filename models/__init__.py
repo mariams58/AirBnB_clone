@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ creates a unique instance of filestorage """
-from engine.filestorage import FileStorage
+from models.engine.file_storage import FileStorage
 
 
 storage = FileStorage()
