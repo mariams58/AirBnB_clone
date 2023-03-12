@@ -2,7 +2,6 @@
 """ this module defines the base model """
 import uuid
 import datetime
-from models import storage
 
 date_format = "%Y-%m-%dT%H:%M:%S.%f"
 class BaseModel:
@@ -28,7 +27,6 @@ class BaseModel:
         """ updates the public instance attribute `updated_at`
         with the current datetime """
         self.updated_at = datetime.datetime.now()
-        storage.save()
 
     def to_dict(self):
         """ returns a dictionary containing all keys/values
