@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+""" defines the user class """
+from base_model import BaseModel
+
+
+class User(BaseModel):
+    """ User class """
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""

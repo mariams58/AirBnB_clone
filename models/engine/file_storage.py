@@ -2,6 +2,7 @@
 """ defines the FileStorage module """
 import json
 from os.path import exists
+from models import base_model, user
 
 
 class FileStorage:
@@ -23,11 +24,12 @@ class FileStorage:
 
     def save(self):
         """ serializes __objects to the JSON file (path: __file_path) """
-        to_json = {}
+        dict_json = {}
         for key, value in FileStorage.__objects.items():
-            to_json[key] = value.to_dict()
-        with open(FileStorage.__filepath, "w") as f:
-            json.dump(to_json, f)
+            dict_json[key] = value.to_dict()
+        with open("file.json", "w", encoding="utf-8") as f:
+            dump = json.dumps(dict_json)
+            f.write(dump)
 
     def reload(self):
         """ deserializes the JSON file to __objects """

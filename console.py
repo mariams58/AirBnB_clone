@@ -36,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
             inst.save()
             print(inst.id)
 
-    def do_show(self, *args):
+    def do_show(self, args):
         """Show command to print the string representation
         of an instance based on the class name and id"""
         if not args:
@@ -54,6 +54,21 @@ class HBNBCommand(cmd.Cmd):
                         return
                 print("** no instance found **")
 
+    def do_destroy(self, args):
+        """Destroy command to delete an inst based on the class name and id"""
+        if not args:                                          print("** class name missing **")             else:
+            args = args.split()
+            if args[0] not in classes:
+                print("** class doesn't exist **")
+            elif len(args) != 2:
+                print("** instance id missing **")
+            else:
+                for key, value in storage.all().items():
+                    if args[1] == value:
+                        del storage.all()[key]
+                        storage.save()
+                        return
+                print("** no instance found **")
 
 
 if __name__ == '__main__':
