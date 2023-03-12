@@ -19,7 +19,6 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
-            storage.new()
 
     def __str__(self):
         """ returns the strung representation of basemodel"""
