@@ -2,7 +2,18 @@
 """ defines the FileStorage module """
 import json
 from os.path import exists
-from models import base_model, user
+from models import base_model, user, review, place, state, city, amenity
+
+
+BaseModel = base_model.BaseModel
+User = user.User
+Review = review.Review
+Place = place.Place
+State = state.State
+City = city.City
+Amenity = amenity.Amenity
+name_class = ["BaseModel", "City", "State",
+              "Place", "Amenity", "Review", "User"]
 
 
 class FileStorage:
@@ -40,8 +51,8 @@ class FileStorage:
             with open(FileStorage.__file_path, "r") as f:
                 dict_obj = json.load(f)
                 for key, value in dict_obj.items():
-                    class_name = key.split(".")[0]
-                    if class_name == "BaseModel":
-                        FileStorage.__objects[key] = eval(class_name)(**value)
+                    class_ = key.split(".")[0]
+                    if class_ in class_name:
+                        FileStorage.__objects[key] = eval(class_)(**value)
                     else:
                         pass
