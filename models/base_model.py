@@ -4,7 +4,6 @@ import uuid
 import datetime
 import models
 
-
 date_format = "%Y-%m-%dT%H:%M:%S.%f"
 
 
