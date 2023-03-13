@@ -52,7 +52,7 @@ class FileStorage:
                 dict_obj = json.load(f)
                 for key, value in dict_obj.items():
                     class_ = key.split(".")[0]
-                    if class_ in class_name:
+                    if class_ in name_class:
                         FileStorage.__objects[key] = eval(class_)(**value)
                     else:
                         pass
