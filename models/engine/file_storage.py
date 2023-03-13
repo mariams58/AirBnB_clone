@@ -26,14 +26,13 @@ class FileStorage:
         to_json = {}
         for key, value in FileStorage.__objects.items():
             to_json[key] = value.to_dict()
-        with open(FileStorage.__filepath, "w") as f:
+        with open(FileStorage.__file_path, "w") as f:
             json.dump(to_json, f)
 
     def reload(self):
         """ deserializes the JSON file to __objects """
         dict_obj = {}
 
-        FileStorage.__filepath = {}
         if (exists(FileStorage.__file_path)):
             with open(FileStorage.__file_path, "r") as f:
                 dict_obj = json.load(f)
