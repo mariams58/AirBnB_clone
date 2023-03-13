@@ -38,7 +38,7 @@ class FileStorage:
             with open(FileStorage.__file_path, "r") as f:
                 dict_obj = json.load(f)
                 for key, value in dict_obj.items():
-                    class_name = key.split(".")[0]
+                    class_name = key.split(",")[0]
                     if class_name == "BaseModel":
                         FileStorage.__objects[key] = eval(class_name)(**value)
                     else:
