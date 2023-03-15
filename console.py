@@ -60,8 +60,7 @@ class HBNBCommand(cmd.Cmd):
                     if args[1] == value:
                         print(value)
                     return
-                    else:
-                        print("** no instance found **")
+                print("** no instance found **")
 
     def do_destroy(self, args):
         """Destroy command to delete an inst based on the class name and id"""
@@ -111,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 1:
             print("** instance id missing **")
             return False
-        if "{}.{}".format(args[0], args[1]) not in storage, all().keys():
+        if "{}.{}".format(args[0], args[1]) not in storage.all().keys():
             print("** no instance found **")
             return False
         if len(args) == 2:
