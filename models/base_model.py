@@ -27,8 +27,8 @@ class BaseModel:
 
     def __str__(self):
         """ returns the strung representation of basemodel"""
-        return "[{}] ({}) {}".format(type(self).__name__, self.id,
-                self.__dict__)
+        nm = (type(self).__name__)
+        return "[{}] ({}) {}".format(nm, self.id, self.__dict__)
 
     def save(self):
         """ updates the public instance attribute `updated_at`
